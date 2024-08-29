@@ -1,17 +1,19 @@
 package com.leon.gestion.persitence.entity;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "purchase_items")
-public class ComprasProducto {
+@Table(name = "sale_items")
+public class VentasProductos {
 
     @EmbeddedId
-    private ComprasProductoPK id;
+    private VentasProductosPK id;
 
     @Column(name = "quantity")
     private Integer cantidad;
@@ -25,11 +27,11 @@ public class ComprasProducto {
     @Column(name = "updated_at")
     private LocalDateTime actualizadoEn;
 
-    public ComprasProductoPK getId() {
+    public VentasProductosPK getId() {
         return id;
     }
 
-    public void setId(ComprasProductoPK id) {
+    public void setId(VentasProductosPK id) {
         this.id = id;
     }
 
