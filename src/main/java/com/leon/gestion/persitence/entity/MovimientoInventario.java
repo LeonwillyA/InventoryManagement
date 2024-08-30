@@ -34,6 +34,10 @@ public class MovimientoInventario {
     @Column(name = "updated_at")
     private LocalDateTime actualizadoEn;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private Producto producto;
+
     public Integer getIdMovimientoInventario() {
         return idMovimientoInventario;
     }

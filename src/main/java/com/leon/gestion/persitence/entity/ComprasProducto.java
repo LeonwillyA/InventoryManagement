@@ -25,6 +25,14 @@ public class ComprasProducto {
     @Column(name = "updated_at")
     private LocalDateTime actualizadoEn;
 
+    @ManyToOne
+    @JoinColumn(name = "purchase_id", insertable = false, updatable = false)
+    private Compras compras;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private Producto producto;
+
     public ComprasProductoPK getId() {
         return id;
     }

@@ -1,9 +1,6 @@
 package com.leon.gestion.persitence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -26,6 +23,14 @@ public class VentasProductos {
 
     @Column(name = "updated_at")
     private LocalDateTime actualizadoEn;
+
+    @ManyToOne
+    @JoinColumn(name = "sale_id", insertable = false,updatable = false)
+    private Ventas ventas;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private Producto producto;
 
     public VentasProductosPK getId() {
         return id;

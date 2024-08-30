@@ -1,7 +1,10 @@
 package com.leon.gestion.persitence.entity;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -17,7 +20,7 @@ public class Producto {
 
     private String description;
 
-    private Double price;
+    private BigDecimal price;
 
     @Column(name="sku")
     private String codigoBarras;
@@ -37,6 +40,15 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private Categorias categorias;
+
+    @OneToMany(mappedBy = "producto")
+    private List<MovimientoInventario> movimientoInventarios;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> comprasProductos;
+
+    @OneToMany(mappedBy = "producto")
+    private List<VentasProductos> ventasProductos;
 
     public Integer getIdProducto() {
         return idProducto;

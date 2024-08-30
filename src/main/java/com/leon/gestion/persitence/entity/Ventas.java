@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "sales")
@@ -33,6 +34,9 @@ public class Ventas {
     @ManyToOne
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
     private Clientes clientes;
+
+    @OneToMany(mappedBy = "ventas")
+    private List<VentasProductos> ventasProductos;
 
     public Integer getIdVentas() {
         return idVentas;
