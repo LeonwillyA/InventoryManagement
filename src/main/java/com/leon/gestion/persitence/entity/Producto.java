@@ -16,11 +16,14 @@ public class Producto {
     @Column(name = "id")
     private Integer idProducto;
 
-    private String name;
+    @Column(name = "name")
+    private String nombre;
 
-    private String description;
+    @Column(name = "description")
+    private String descripcion;
 
-    private BigDecimal price;
+    @Column(name="price")
+    private BigDecimal precio;
 
     @Column(name="sku")
     private String codigoBarras;
@@ -50,6 +53,14 @@ public class Producto {
     @OneToMany(mappedBy = "producto")
     private List<VentasProductos> ventasProductos;
 
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
+    }
+
     public Integer getIdProducto() {
         return idProducto;
     }
@@ -58,28 +69,20 @@ public class Producto {
         this.idProducto = idProducto;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getCodigoBarras() {

@@ -6,9 +6,8 @@ import java.time.LocalDateTime;
 public class Product {
 
     private int productId;
-
     private String name;
-
+    private String description;
     private BigDecimal price;
     private int categoryId;
     private int stock;
@@ -16,6 +15,15 @@ public class Product {
     private LocalDateTime updatedAt;
     // Esta es de la relacion de muchos productos, pueden corresponder a una sola categoria
     private Category category;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getProductId() {
         return productId;
