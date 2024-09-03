@@ -124,4 +124,36 @@ public class Producto {
     public void setActualizadoEn(LocalDateTime actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
     }
+
+    public Categorias getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Categorias categorias) {
+        this.categorias = categorias;
+    }
+
+    public List<MovimientoInventario> getMovimientoInventarios() {
+        return movimientoInventarios;
+    }
+
+    public void setMovimientoInventarios(List<MovimientoInventario> movimientoInventarios) {
+        this.movimientoInventarios = movimientoInventarios;
+    }
+
+    public List<ComprasProducto> getComprasProductos() {
+        return comprasProductos;
+    }
+
+    public void setComprasProductos(List<ComprasProducto> comprasProductos) {
+        this.comprasProductos = comprasProductos;
+    }
+
+    public List<VentasProductos> getVentasProductos() {
+        return ventasProductos;
+    }
+
+    public void setVentasProductos(List<VentasProductos> ventasProductos) {
+        this.ventasProductos = ventasProductos;
+    }
 }

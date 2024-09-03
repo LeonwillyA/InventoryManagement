@@ -27,6 +27,14 @@ public class Categorias {
     @OneToMany(mappedBy = "categorias")
     private List<Producto> productos;
 
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
     public Integer getIdCategorias() {
         return idCategorias;
     }
@@ -66,4 +74,5 @@ public class Categorias {
     public void setActualizadoEn(LocalDateTime actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
     }
+
 }

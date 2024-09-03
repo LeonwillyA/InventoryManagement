@@ -12,9 +12,9 @@ public interface CategoryMapper {
     @Mappings({
             @Mapping(source = "idCategorias", target = "categoryId"),
             @Mapping(source = "name", target = "category"),
-            @Mapping(source = "descripcion", target = ""),
-            @Mapping(source = "creadoEn",target = ""),
-            @Mapping(source = "actualizadoEn",target = ""),
+            @Mapping(source = "descripcion", target = "description"),
+            @Mapping(source = "creadoEn",target = "createdAt"),
+            @Mapping(source = "actualizadoEn",target = "updatedAt"),
     })
     Category toCategory (Categorias categorias);
 

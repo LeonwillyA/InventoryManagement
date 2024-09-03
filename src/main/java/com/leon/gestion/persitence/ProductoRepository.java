@@ -5,6 +5,7 @@ import com.leon.gestion.domain.repository.ProductRepository;
 import com.leon.gestion.persitence.crud.ProductoCrudRepository;
 import com.leon.gestion.persitence.entity.Producto;
 import com.leon.gestion.persitence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -14,7 +15,9 @@ import java.util.Optional;
 
 @Repository
 public class ProductoRepository implements ProductRepository {
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
+    @Autowired
     private ProductMapper productMapper;
 
     @Override
@@ -25,7 +28,7 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getByCategory(int categoryId) {
-        List<Producto> productosCategoria = productoCrudRepository.findByIdCategoriaOrderByNameAsc(categoryId);
+        List<Producto> productosCategoria = productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);
         return Optional.of(productMapper.toProducts(productosCategoria));
     }
 
@@ -43,7 +46,7 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> lessPriceUnit(double price, int stock) {
-        Optional<List<Producto>> productosBajos= productoCrudRepository.findByPriceLessThanAndStockUnidadesLessThan(price, stock);
+        Optional<List<Producto>> productosBajos= productoCrudRepository.findByPrecioLessThanAndStockUnidadesLessThan(price, stock);
         return productosBajos.map(productos -> productMapper.toProducts(productos));
     }
 
