@@ -36,8 +36,24 @@ public class Compras {
     @JoinColumn(name = "supplier_id", insertable = false, updatable = false)
     private Proveedores proveedores;
 
-    @OneToMany(mappedBy = "compras")
+    @OneToMany(mappedBy = "compras", cascade = {CascadeType.ALL})
     private List<ComprasProducto> comprasProductos;
+
+    public Proveedores getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(Proveedores proveedores) {
+        this.proveedores = proveedores;
+    }
+
+    public List<ComprasProducto> getComprasProductos() {
+        return comprasProductos;
+    }
+
+    public void setComprasProductos(List<ComprasProducto> comprasProductos) {
+        this.comprasProductos = comprasProductos;
+    }
 
     public Integer getIdCompras() {
         return idCompras;

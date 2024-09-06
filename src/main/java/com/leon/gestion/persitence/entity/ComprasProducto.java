@@ -26,6 +26,7 @@ public class ComprasProducto {
     private LocalDateTime actualizadoEn;
 
     @ManyToOne
+    @MapsId("idCompras")
     @JoinColumn(name = "purchase_id", insertable = false, updatable = false)
     private Compras compras;
 
@@ -71,5 +72,21 @@ public class ComprasProducto {
 
     public void setActualizadoEn(LocalDateTime actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
+    }
+
+    public Compras getCompras() {
+        return compras;
+    }
+
+    public void setCompras(Compras compras) {
+        this.compras = compras;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }
