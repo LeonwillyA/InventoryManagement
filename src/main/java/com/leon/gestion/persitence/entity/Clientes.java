@@ -10,7 +10,7 @@ import java.util.List;
 public class Clientes {
     @Id
     @Column(name = "id")
-    private Integer idClientes;
+    private String idClientes;
 
     private String name;
 
@@ -33,12 +33,20 @@ public class Clientes {
     @OneToMany (mappedBy = "clientes")
     private List<Ventas> ventas;
 
-    public Integer getIdClientes() {
+    public String getIdClientes() {
         return idClientes;
     }
 
-    public void setIdClientes(Integer idClientes) {
+    public void setIdClientes(String idClientes) {
         this.idClientes = idClientes;
+    }
+
+    public List<Ventas> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(List<Ventas> ventas) {
+        this.ventas = ventas;
     }
 
     public String getName() {

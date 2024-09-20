@@ -1,5 +1,6 @@
 package com.leon.gestion.persitence.crud;
 
+import com.leon.gestion.domain.Sales;
 import com.leon.gestion.persitence.entity.Ventas;
 import org.springframework.data.repository.CrudRepository;
 
@@ -8,5 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VentasCrudRepository extends CrudRepository<Ventas, Integer> {
-    Optional<List<Ventas>> findByMontoAcumuladoLessThanAndStatus(BigDecimal montoAcumulado, String status);
+    //Optional<List<Ventas>> findByMontoAcumuladoLessThanAndStatus(BigDecimal montoAcumulado, String status);
+
+    Optional<List<Ventas>> findByClienteId(String clienteId);
 }

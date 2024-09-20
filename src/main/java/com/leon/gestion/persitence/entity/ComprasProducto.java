@@ -31,8 +31,11 @@ public class ComprasProducto {
     private Compras compras;
 
     @ManyToOne
+    @MapsId("idProducto")
     @JoinColumn(name = "product_id", insertable = false, updatable = false)
     private Producto producto;
+
+
 
     public ComprasProductoPK getId() {
         return id;

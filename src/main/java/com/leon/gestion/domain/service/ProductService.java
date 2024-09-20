@@ -2,6 +2,7 @@ package com.leon.gestion.domain.service;
 
 import com.leon.gestion.domain.Product;
 import com.leon.gestion.domain.repository.ProductRepository;
+import com.leon.gestion.persitence.entity.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
 
     public List<Product> getAll(){
         return productRepository.getAll();

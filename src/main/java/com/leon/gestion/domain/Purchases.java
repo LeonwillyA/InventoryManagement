@@ -1,17 +1,20 @@
 package com.leon.gestion.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Purchases {
     private int purchaseId;
+
     private LocalDateTime datePurchase;
     private Integer supplierId;
     private BigDecimal totalAmount;
     private String status;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedEn;
+    private LocalDateTime updatedAt;
     private List<PurchasesItem> purchasesItems;
 
     public int getPurchaseId() {
@@ -62,12 +65,12 @@ public class Purchases {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedEn() {
-        return updatedEn;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdatedEn(LocalDateTime updatedEn) {
-        this.updatedEn = updatedEn;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public List<PurchasesItem> getPurchasesItems() {

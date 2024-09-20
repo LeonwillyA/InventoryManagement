@@ -25,12 +25,29 @@ public class VentasProductos {
     private LocalDateTime actualizadoEn;
 
     @ManyToOne
-    @JoinColumn(name = "sale_id", insertable = false,updatable = false)
+    @JoinColumn(name = "sale_id", insertable = false, updatable = false)
+    @MapsId("ventasId")
     private Ventas ventas;
 
     @ManyToOne
     @JoinColumn(name = "product_id", insertable = false, updatable = false)
     private Producto producto;
+
+    public Ventas getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(Ventas ventas) {
+        this.ventas = ventas;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 
     public VentasProductosPK getId() {
         return id;

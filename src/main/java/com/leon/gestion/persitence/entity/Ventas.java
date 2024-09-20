@@ -18,7 +18,7 @@ public class Ventas {
     private LocalDateTime fechaVenta;
 
     @Column(name = "customer_id")
-    private Integer clienteId;
+    private String clienteId;
 
     @Column(name = "total_amount")
     private BigDecimal montoAcumulado;
@@ -35,8 +35,25 @@ public class Ventas {
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
     private Clientes clientes;
 
-    @OneToMany(mappedBy = "ventas")
+    @OneToMany(mappedBy = "ventas", cascade = {CascadeType.ALL})
     private List<VentasProductos> ventasProductos;
+
+    public List<VentasProductos> getVentasProductos() {
+        return ventasProductos;
+    }
+
+    public void setVentasProductos(List<VentasProductos> ventasProductos) {
+        this.ventasProductos = ventasProductos;
+    }
+
+    public Clientes getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(Clientes clientes) {
+        this.clientes = clientes;
+    }
+
 
     public Integer getIdVentas() {
         return idVentas;
@@ -54,11 +71,11 @@ public class Ventas {
         this.fechaVenta = fechaVenta;
     }
 
-    public Integer getClienteId() {
+    public String getClienteId() {
         return clienteId;
     }
 
-    public void setClienteId(Integer clienteId) {
+    public void setClienteId(String clienteId) {
         this.clienteId = clienteId;
     }
 

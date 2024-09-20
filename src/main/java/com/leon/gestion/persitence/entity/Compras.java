@@ -1,9 +1,11 @@
 package com.leon.gestion.persitence.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +15,7 @@ public class Compras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer idCompras;
+    private Integer compraId;
 
     @Column(name = "purchase_date")
     private LocalDateTime fechaCompra;
@@ -26,7 +28,7 @@ public class Compras {
 
     private String status;
 
-    @Column(name = "created_at")
+    @Column(name = "createdAt")
     private LocalDateTime creadoEn;
 
     @Column(name = "updated_at")
@@ -38,6 +40,7 @@ public class Compras {
 
     @OneToMany(mappedBy = "compras", cascade = {CascadeType.ALL})
     private List<ComprasProducto> comprasProductos;
+
 
     public Proveedores getProveedores() {
         return proveedores;
@@ -55,12 +58,12 @@ public class Compras {
         this.comprasProductos = comprasProductos;
     }
 
-    public Integer getIdCompras() {
-        return idCompras;
+    public Integer getCompraId() {
+        return compraId;
     }
 
-    public void setIdCompras(Integer idCompras) {
-        this.idCompras = idCompras;
+    public void setCompraId(Integer compraId) {
+        this.compraId = compraId;
     }
 
     public LocalDateTime getFechaCompra() {

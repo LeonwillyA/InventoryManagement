@@ -10,11 +10,10 @@ import java.util.List;
 @Table(name = "products")
 public class Producto {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer idProducto;
+    private Integer productoId;
 
     @Column(name = "name")
     private String nombre;
@@ -44,11 +43,11 @@ public class Producto {
     @JoinColumn(name = "category_id", insertable = false, updatable = false)
     private Categorias categorias;
 
-    @OneToMany(mappedBy = "producto")
-    private List<MovimientoInventario> movimientoInventarios;
+    @OneToMany(mappedBy = "producto", cascade = {CascadeType.ALL})
+    private List<ComprasProducto> comprasProductos;
 
     @OneToMany(mappedBy = "producto")
-    private List<ComprasProducto> comprasProductos;
+    private List<MovimientoInventario> movimientoInventarios;
 
     @OneToMany(mappedBy = "producto")
     private List<VentasProductos> ventasProductos;
@@ -61,12 +60,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Integer getIdProducto() {
-        return idProducto;
+    public Integer getProductoId() {
+        return productoId;
     }
 
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
+    public void setProductoId(Integer productoId) {
+        this.productoId = productoId;
     }
 
     public String getNombre() {

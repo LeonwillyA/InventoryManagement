@@ -13,12 +13,12 @@ import java.util.List;
 public interface PurchasesMapper {
 
     @Mappings({
-            @Mapping(source = "idCompras", target = "purchaseId"),
+            @Mapping(source = "compraId", target = "purchaseId"),
             @Mapping(source = "fechaCompra", target = "datePurchase"),
             @Mapping(source = "proveedorId", target = "supplierId"),
             @Mapping(source = "montoAcumulado", target = "totalAmount"),
             @Mapping(source = "creadoEn", target = "createdAt"),
-            @Mapping(source = "actualizadoEn", target = "updatedEn"),
+            @Mapping(source = "actualizadoEn", target = "updatedAt"),
             @Mapping(source = "comprasProductos", target = "purchasesItems")
     })
     Purchases toPurchases(Compras compras);
